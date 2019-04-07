@@ -25,6 +25,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let temImageView = UIImageView(frame: view.frame)
+        temImageView.contentMode = .scaleAspectFill
+        temImageView.image = UIImage(named: "background")!
+        view.backgroundColor = UIColor(patternImage: temImageView.asImage())
+        
+
+//        let imageView = UIImageView(frame: view.frame)
+//        imageView.image = UIImage(named: "background")
+//        view.addSubview(imageView)
+        
+        
+        
+        
         transformLayer.frame = self.view.bounds
         view.layer.addSublayer(transformLayer)
         
@@ -34,7 +47,7 @@ class ViewController: UIViewController {
         
         turnCarousel()
         
-        view.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1)
+        
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(ViewController.performPanAction(recognizer:)))
         view.addGestureRecognizer(panGestureRecognizer)
